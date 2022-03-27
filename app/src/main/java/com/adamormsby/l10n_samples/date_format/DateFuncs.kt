@@ -56,8 +56,8 @@ fun Date.asTimeOrRecentDate(): String =
 fun Date.flexFormatted(
     context: Context,
     showWeekday: Boolean = false,
-    showMonth: Boolean = true,     // check this one
-    showMonthDay: Boolean = true,  // check this one
+    showMonth: Boolean = true,
+    showMonthDay: Boolean = true,
     showYear: Boolean = false,
     showTime: Boolean = false,
     numeric: Boolean = false,
