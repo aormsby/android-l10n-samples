@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.adamormsby.l10n_samples.date_format.DateFormatActivity
+import com.adamormsby.l10n_samples.locale_changer.LocaleChangerActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val sampleActivities = arrayOf(
+            Pair("Locale Changer", LocaleChangerActivity::class.java),
             Pair("Date Format", DateFormatActivity::class.java)
         )
 

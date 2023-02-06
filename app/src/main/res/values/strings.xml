@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">l10n_samples</string>
+    <string name="hello">Hello!</string>
 </resources>

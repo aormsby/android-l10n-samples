@@ -2,9 +2,12 @@ package com.adamormsby.l10n_samples.date_format
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.ViewGroup.LayoutParams
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.LocaleManagerCompat
 import com.adamormsby.l10n_samples.R
 import java.util.*
 
@@ -36,14 +39,21 @@ class DateFormatActivity : AppCompatActivity() {
 
             TextView(this).apply { text = "Date with year -> ${testDate.asDateWithYear(context)}" },
             TextView(this).apply {
-                text = "Date with year, numeric -> ${testDate.asDateWithYear(context, numeric = true)}"
+                text =
+                    "Date with year, numeric -> ${testDate.asDateWithYear(context, numeric = true)}"
             },
             TextView(this).apply {
-                text = "Date with year, abbreviated -> ${testDate.asDateWithYear(context, abbreviated = true)}"
+                text = "Date with year, abbreviated -> ${
+                    testDate.asDateWithYear(
+                        context,
+                        abbreviated = true
+                    )
+                }"
             },
 
             TextView(this).apply {
-                text = "As time or recent date (current time used here) -> ${Date().asTimeOrRecentDate()}"
+                text =
+                    "As time or recent date (current time used here) -> ${Date().asTimeOrRecentDate()}"
             },
             TextView(this).apply {
                 text = "As time or recent date -> ${testDate.asTimeOrRecentDate()}"
@@ -70,11 +80,20 @@ class DateFormatActivity : AppCompatActivity() {
             TextView(this).apply {
                 text = "Flex - month -> ${testDate.flexFormatted(context, showMonthDay = false)}"
             },
+
+            TextView(this).apply {
+                text = "Dates shown in active locale -> ${
+                    AppCompatDelegate.getApplicationLocales()[0]
+                        ?: LocaleManagerCompat.getSystemLocales(context)[0]
+                }"
+                textSize = 24f
+                layoutParams = LinearLayout.LayoutParams(
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT
+                ).apply { setMargins(0, 100, 0, 0) }
+            },
         )
 
 
         textViews.forEach { layout.addView(it) }
     }
-
-    // TODO: add locale switcher
 }
