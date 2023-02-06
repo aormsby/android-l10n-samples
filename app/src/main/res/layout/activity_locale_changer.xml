@@ -6,14 +6,25 @@
     android:layout_height="match_parent">
 
     <TextView
+    android:id="@+id/hello_text_view"
+    android:layout_width="match_parent"
+    android:textSize="32sp"
+    android:text="@string/hello"
+    android:gravity="center"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <TextView
         android:id="@+id/locale_changer_active_locale"
         android:layout_width="match_parent"
-        android:textSize="32sp"
+        android:textSize="24sp"
         tools:text="Active locale -> en (United States)"
         android:gravity="center"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hello_text_view"
         />
 
     <ListView
